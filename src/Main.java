@@ -14,7 +14,6 @@ public class Main {
             System.out.println(availablAppointment.getDate()+" "+availablAppointment.getTime());
         }
 
-
         Patient patient = new Patient("ALejandra", "ale@email.com");
 
     }
