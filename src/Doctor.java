@@ -1,7 +1,10 @@
+import java.util.ArrayList;
+import java.util.Date;
+
 public class Doctor {
-    static int id = 0;
-    String name;
-    String speciality;
+    private static int id = 0;
+    private String name;
+    private String speciality;
 
     Doctor(){
         id++;
@@ -19,5 +22,33 @@ public class Doctor {
 
     public void showId(){
         System.out.println("Id doctor: "+id);
+    }
+
+    ArrayList<AvailablAppointment> availablAppointments = new ArrayList<>();
+    public void addAvailableAppointment(Date date, String time){
+        availablAppointments.add(new AvailablAppointment(date,time));
+    }
+
+    public ArrayList<AvailablAppointment> getAvailableAppointments(){
+        return availablAppointments;
+    }
+
+    public static class AvailablAppointment{
+        private int id_availableAppointment;
+        private Date date;
+        private String time;
+
+        public AvailablAppointment(Date date, String time) {
+            this.date = date;
+            this.time = time;
+        }
+
+        public Date getDate() {
+            return date;
+        }
+
+        public String getTime() {
+            return time;
+        }
     }
 }
