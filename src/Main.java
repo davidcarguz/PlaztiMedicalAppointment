@@ -9,9 +9,9 @@ public class Main {
     public static void main(String[] args) {
         //showMenu();
         Doctor myDoctor = new Doctor("Hernesto Martinez", "doctor@gmail.com");
-        myDoctor.addAvailableAppointment(new Date(), "4pm");
-        myDoctor.addAvailableAppointment(new Date(),  "2pm");
-        myDoctor.addAvailableAppointment(new Date(), "6pm");
+        myDoctor.addAvailableAppointment("24/08/2020", "4pm");
+        myDoctor.addAvailableAppointment("24/08/2020",  "2pm");
+        myDoctor.addAvailableAppointment("24/08/2020", "6pm");
         myDoctor.showDataUser();
 
 
@@ -25,6 +25,7 @@ public class Main {
         System.out.println(patient);
         patient.showDataUser();
 
+        //Ejemplo clase anonima.
         User user1 = new User("Sofia Lopez","sofil@mail.com") {
             @Override
             public void showDataUser() {
