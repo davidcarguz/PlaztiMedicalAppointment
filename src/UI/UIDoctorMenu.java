@@ -50,9 +50,9 @@ public class UIDoctorMenu {
             Scanner scanner = new Scanner(System.in);
             response = Integer.valueOf(scanner.nextLine());
             if(response > 0 && response < 4){
-                int monthSelected = response-1;
-                System.out.println(monthSelected+". "+UIMenu.MONTHS[monthSelected]);
-                System.out.println("Insert the date available: [d/mm/yyyy]");
+                int monthSelected = response;
+                System.out.println(monthSelected+". "+UIMenu.MONTHS[monthSelected-1]);
+                System.out.println("Insert the date available: [dd/mm/yyyy]");
                 String date = scanner.nextLine();
                 System.out.println("Your date is: "+date+" \n1. Correct\n2. Change date");
                 int responseDate = Integer.valueOf(scanner.nextLine());

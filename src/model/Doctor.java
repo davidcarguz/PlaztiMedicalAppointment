@@ -8,6 +8,7 @@ import java.util.Date;
 public class Doctor extends User{
 
     private String speciality;
+    private ArrayList<AvailablAppointment> availablAppointments = new ArrayList<>();
 
     public Doctor(String name, String email){
         super(name,email);
@@ -22,7 +23,7 @@ public class Doctor extends User{
     }
 
     //Comportamientos
-    ArrayList<AvailablAppointment> availablAppointments = new ArrayList<>();
+
     public void addAvailableAppointment(String date, String time){
         availablAppointments.add(new AvailablAppointment(date,time));
     }
