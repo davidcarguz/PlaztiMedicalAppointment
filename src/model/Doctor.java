@@ -8,7 +8,7 @@ import java.util.Date;
 public class Doctor extends User{
 
     private String speciality;
-    private ArrayList<AvailablAppointment> availablAppointments = new ArrayList<>();
+    private ArrayList<AvailableAppointment> availableAppointments = new ArrayList<>();
 
     public Doctor(String name, String email){
         super(name,email);
@@ -25,20 +25,20 @@ public class Doctor extends User{
     //Comportamientos
 
     public void addAvailableAppointment(String date, String time){
-        availablAppointments.add(new AvailablAppointment(date,time));
+        availableAppointments.add(new AvailableAppointment(date,time));
     }
 
-    public ArrayList<AvailablAppointment> getAvailableAppointments(){
-        return availablAppointments;
+    public ArrayList<AvailableAppointment> getAvailableAppointments(){
+        return availableAppointments;
     }
 
-    public static class AvailablAppointment{
+    public static class AvailableAppointment{
         private int id_availableAppointment;
         private Date date;
         private String time;
         SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy");
 
-        public AvailablAppointment(String date, String time) {
+        public AvailableAppointment(String date, String time) {
             try {
                 this.date = format.parse(date);
             } catch (ParseException e) {
@@ -47,11 +47,11 @@ public class Doctor extends User{
             this.time = time;
         }
 
-        public Date getDate() {
+        public Date getDate(String DATE) {
             return date;
         }
 
-        public String getDate(String DATE) {
+        public String getDate() {
             return format.format(date);
         }
 
@@ -67,7 +67,7 @@ public class Doctor extends User{
 
     @Override
     public String toString() {
-        return "Speciality: "+speciality+"\n Available: "+availablAppointments.toString();
+        return "Speciality: "+speciality+"\n Available: "+availableAppointments.toString();
     }
 
     @Override

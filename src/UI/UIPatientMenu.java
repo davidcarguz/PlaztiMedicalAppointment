@@ -1,6 +1,7 @@
 package UI;
 
 import model.Doctor;
+import sun.lwawt.macosx.CSystemTray;
 
 import java.util.ArrayList;
 import java.util.Map;
@@ -39,18 +40,34 @@ public class UIPatientMenu {
             Map<Integer, Map<Integer, Doctor>> doctors = new TreeMap<>();
             int k = 0;
             for(int i = 0; i <UIDoctorMenu.doctorsAvailableAppointments.size(); i++){
-                ArrayList<Doctor.AvailablAppointment> availablAppointments
-                        = UIDoctorMenu.doctorsAvailableAppointments.get(1).getAvailableAppointments();
+                ArrayList<Doctor.AvailableAppointment> availableAppointments
+                        = UIDoctorMenu.doctorsAvailableAppointments.get(i).getAvailableAppointments();
                 Map<Integer, Doctor> doctorAppointments = new TreeMap<>();
-                for(int j = 0; j < availablAppointments.size(); j++){
+                for(int j = 0; j < availableAppointments.size(); j++){
                     k++;
-                    System.out.println(k+". "+availablAppointments.get(j).getDate());
+                    System.out.println(k+". "+availableAppointments.get(j).getDate());
                     doctorAppointments.put(Integer.valueOf(j),UIDoctorMenu.doctorsAvailableAppointments.get(i));
                     doctors.put(Integer.valueOf(k),doctorAppointments);
                 }
             }
             Scanner scanner = new Scanner(System.in);
             int responseDateSelected = Integer.valueOf(scanner.nextLine());
+            Map<Integer,Doctor> doctorAvailableSelected = doctors.get(responseDateSelected);
+            Integer indexDate = 0;
+            Doctor doctorSelected = new Doctor("","");
+            for(Map.Entry<Integer,Doctor> doc : doctorAvailableSelected.entrySet()){
+                indexDate = doc.getKey();
+                doctorSelected = doc.getValue();
+            }
+            System.out.println(doctorSelected.getName()
+                    +". Date: "+doctorSelected.getAvailableAppointments().get(indexDate).getDate()
+                    +". Time: "+doctorSelected.getAvailableAppointments().get(indexDate).getTime());
+            System.out.println("Confirm your appointment: \n1. yes\n2. Change data" );
+            response = Integer.valueOf(scanner.nextLine());
+
+            if(response == 1){
+
+            }
         }while(response !=0);
     }
 }
